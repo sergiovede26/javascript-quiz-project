@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /************  EVENT LISTENERS  ************/
 
   nextButton.addEventListener("click", nextButtonHandler);
-  restartButton.addEventListener("click", restartButtonHandler)
 
 
 
@@ -229,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 2. Show the end view (div#endView)
     let endView = document.querySelector('#endView')
-    endView.style.display = "flex";
+    endView.style.display = "block";
     
     // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
     resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${questions.length} correct answers!`; // This value is hardcoded as a placeholder
@@ -243,19 +242,15 @@ let resetButton = document.querySelector('#restartButton');
 resetButton.addEventListener('click', (e) => {
   endView.style.display = "none";
 
-  quizView.style.display = "flex";
+  quizView.style.display = "block";
 
   quiz.currentQuestionIndex = 0;
   quiz.correctAnswers = 0;
 
   quiz.shuffleQuestions();
-
-  
-
   timer = quiz.timeRemaining;
 
   timeRemainingContainer.innerText = makeMinAndSec(timer);
-
   timerOut = setInterval(timeRemaining, 1000);
   showQuestion();
 })
